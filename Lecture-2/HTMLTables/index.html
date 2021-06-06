@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables</title>
+</head>
+<body>
+
+    <h1>Tables</h1>
+
+    <table bgcolor="#ccc" border="5" cellspacing="10" cellpadding="10">
+
+        <thead>
+            <tr>
+                <th>Days</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Mon</td>
+                <td>English</td>
+                <td>Maths</td>
+                <td>Games</td>
+                <td>Hindi</td>
+            </tr>
+            <tr>
+                <td>Tue</td>
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Sanskrit</td>
+                <td>Hindi</td>
+            </tr>
+            <tr>
+                <td>Wed</td>
+                <td rowspan="2">English</td>
+                <td>Economics</td>
+                <td>Games</td>
+                <td>Hindi</td>
+            </tr>
+            <tr>
+                <td>Thu</td>
+                <!-- <td>English</td> -->
+                <td>SST</td>
+                <td colspan="2">Games</td>
+                <!-- <td>Games</td> -->
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="5">This is class VIII Time Table</td>
+            </tr>
+        </tfoot>
+
+
+    </table>
+
+    
+</body>
+</html>
