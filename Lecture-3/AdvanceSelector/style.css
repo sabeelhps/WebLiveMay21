@@ -1,0 +1,26 @@
+/* -------------COMBINATORS--------------- */
+
+/* Descendent combinators */
+
+p em strong {
+  color: red;
+}
+
+/* Child combinator */
+
+ul > li {
+  border-top: 2px solid palevioletred;
+}
+
+/* Adjacent sibling combinator */
+
+h4 + p {
+  text-transform: uppercase;
+  color: greenyellow;
+}
+
+/* General Sibling combinator */
+
+section h4 ~ p {
+  color: orange;
+}
