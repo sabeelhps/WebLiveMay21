@@ -1,0 +1,111 @@
+div {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  background-color: palevioletred;
+}
+
+div:hover {
+  background-color: aqua;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* a:link {
+  color: red;
+}
+
+a:visited {
+  color: green;
+} */
+
+input:focus {
+  background-color: aquamarine;
+}
+
+a:active {
+  color: blue;
+}
+
+h1:hover {
+  text-transform: uppercase;
+  color: red;
+  cursor: pointer;
+}
+
+#special::first-letter {
+  font-size: 40px;
+  color: blue;
+}
+
+ul li:nth-of-type(2n + 4) {
+  color: green;
+}
+
+article p:first-child {
+  color: red;
+}
+
+article p:last-child {
+  color: chartreuse;
+}
+
+h2::after {
+  content: "This is a another text from css";
+  color: blue;
+  border: 3px dashed aquamarine;
+}
+
+h2::before {
+  content: "\2665";
+  color: red;
+}
+
+/* String matching seletor */
+
+a[href^="http"] {
+  color: brown;
+  font-size: 30px;
+}
+
+a[href$="in"] {
+  color: chartreuse;
+  font-size: 40px;
+}
+
+a[href*="coding"] {
+  color: blue;
+  font-size: 20px;
+}
+
+/* Specificity */
+
+#heading {
+  color: blue;
+}
+
+h1 {
+  color: red;
+}
+
+.two {
+  color: green;
+}
+
+article {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+}
+
+article:nth-of-type(1) {
+  background-color: #2a9d8f;
+}
+
+article:nth-of-type(2) {
+  background-color: rgb(10, 200, 30);
+}
+
+article:nth-of-type(3) {
+  background-color: rgba(30, 40, 200, 0.7);
+}
