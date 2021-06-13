@@ -1,0 +1,16 @@
+div {
+  border: 2px solid black;
+  font-size: 24px;
+  background-color: palevioletred;
+  margin: 20px;
+}
+
+div:nth-of-type(5) {
+  position: sticky;
+  top: 0px;
+}
+
+div {
+  position: sticky;
+  top: 10px;
+}
