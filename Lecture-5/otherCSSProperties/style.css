@@ -1,0 +1,19 @@
+p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p:hover {
+  overflow: scroll;
+  text-overflow: clip;
+}
+
+div {
+  border: 2px solid black;
+  background-color: palevioletred;
+  margin: 10px;
+  height: 30px;
+  max-width: 900px;
+  min-width: 600px;
+}

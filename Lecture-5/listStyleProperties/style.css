@@ -1,0 +1,14 @@
+li {
+  border: 1px solid #ccc;
+  font-size: 24px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 600px;
+}
+
+ul {
+  /* list-style-type: "\1F96D"; */
+  /* list-style-position: inside; */
+  /* list-style-image: url("https://images.unsplash.com/photo-1490885578174-acda8905c2c6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZnJ1aXRzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"); */
+  list-style: inside "\1F96D";
+}
