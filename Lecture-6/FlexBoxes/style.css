@@ -1,0 +1,41 @@
+h1 {
+  text-align: center;
+}
+
+section {
+  border: 1px solid black;
+  background-color: cornflowerblue;
+  width: 80vw;
+  height: 600px;
+  margin: 10px auto;
+
+  /* Properties of flexbox */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /* align-content: space-around; */
+}
+
+div {
+  border: 2px solid black;
+  width: 150px;
+  height: 150px;
+  font-size: 24px;
+}
+
+/* div:nth-of-type(3) {
+  align-self: flex-end;
+} */
+
+div:nth-of-type(1) {
+  flex-grow: 1;
+  flex-basis: 200px;
+}
+
+div:nth-of-type(5) {
+  flex-grow: 2;
+  flex-shrink: 2;
+}
