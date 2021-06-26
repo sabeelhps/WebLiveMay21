@@ -1,0 +1,24 @@
+section {
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  animation: 1s infinite alternate ease-in gravity;
+}
+
+section img {
+  width: 100%;
+  height: 100%;
+  animation: 2s linear alternate-reverse infinite rotate;
+}
+
+@keyframes gravity {
+  100% {
+    transform: translateY(540px);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

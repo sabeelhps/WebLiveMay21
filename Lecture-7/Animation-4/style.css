@@ -1,0 +1,27 @@
+:root {
+  --body-ka-color: #0099ff;
+}
+
+div {
+  height: 100px;
+  width: 100px;
+  border: 10px solid black;
+  border-top: 10px solid lightgreen;
+  border-bottom: 10px solid lightskyblue;
+  border-radius: 50%;
+  animation: 500ms infinite linear loader;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--body-ka-color);
+}
+
+@keyframes loader {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
