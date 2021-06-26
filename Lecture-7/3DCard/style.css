@@ -1,0 +1,49 @@
+div {
+  width: 500px;
+  height: 300px;
+  /* border: 1px solid #ccc; */
+}
+
+section {
+  position: relative;
+  perspective: 800px;
+  width: 500px;
+  margin: 40px auto;
+}
+
+.side-a {
+  background-color: lightcoral;
+  z-index: 2;
+}
+
+.side-b {
+  background-color: lightgreen;
+  z-index: 1;
+  transform: rotateY(180deg);
+  padding: 10px;
+}
+
+.side-a,
+.side-b {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.wrapper {
+  transition: 1s;
+  transform-style: preserve-3d;
+}
+
+.wrapper:hover {
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.side-a img {
+  height: 100%;
+  width: 100%;
+}
+
+.side-b h2 {
+  text-align: center;
+}

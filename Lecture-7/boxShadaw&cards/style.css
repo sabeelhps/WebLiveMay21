@@ -1,0 +1,54 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+figure {
+  border: 1px solid #ccc;
+  text-align: center;
+  width: 300px;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+  margin: 10px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+  transition: 300ms;
+}
+
+nav {
+  height: 50px;
+  background-color: #1d3557;
+  color: white;
+}
+
+nav h3 {
+  padding-top: 15px;
+  padding-left: 40px;
+}
+
+img {
+  width: 280px;
+  padding: 10px;
+}
+
+figure button {
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+#poster {
+  height: 400px;
+  border: 1px solid #ccc;
+}
+
+section:nth-of-type(2) {
+  display: flex;
+  width: 80vw;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 10px auto;
+}
+
+figure:hover {
+  transform: scale(1.02);
+}
