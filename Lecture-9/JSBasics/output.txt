@@ -1,0 +1,55 @@
+----------------------str.substr()--
+
+
+str.substr(3)
+"lo World"
+str.substr(3,4);
+"lo W"
+str.substr(-7)
+"o World"
+str.substr(-7,4)
+"o Wo"
+
+
+--------------------str.subtstring()----------
+
+let str = 'Hello World';
+undefined
+str
+"Hello World"
+str.substring()
+"Hello World"
+str.substring(3);
+"lo World"
+str.substring(3,8);
+"lo Wo"
+
+
+--------------------------str.replace() and str.replaceAll()----
+
+let str = 'Hello World';
+undefined
+str 
+"Hello World"
+str.replace('l','X');
+"HeXlo World"
+str
+"Hello World"
+str.replaceAll('l','X');
+"HeXXo WorXd"
+
+
+------------------------str.indexOf()------
+
+let str = 'Hello World';
+undefined
+str.indexOf('l')
+2
+str.indexOf('l',4)
+9
+let msg = 'There is raining outside';
+undefined
+msg.indexOf('raining');
+9
+msg.indexOf('cat');
+-1
