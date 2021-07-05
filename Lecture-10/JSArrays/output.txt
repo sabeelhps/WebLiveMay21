@@ -1,0 +1,48 @@
+c
+(5) [1, 2, 3, "mango", "orange"]
+c.join('-->')
+"1-->2-->3-->mango-->orange"
+'http:///codingblocksyoutube.com'.split('/');
+(4) ["http:", "", "", "codingblocksyoutube.com"]0: "http:"1: ""2: ""3: "codingblocksyoutube.com"length: 4__proto__: Array(0)
+'http://youtube.com/codingblocks'.split('/')
+(4) ["http:", "", "youtube.com", "codingblocks"]0: "http:"1: ""2: "youtube.com"3: "codingblocks"length: 4__proto__: Array(0)
+'http://youtube.com/codingblocks'.split('/').pop();
+"codingblocks"
+
+---------------------------------------------
+colors
+(4) ["pink", "green", "orange", "red"]
+colors.splice(1,0,'yellow','white');
+[]
+colors
+(6) ["pink", "yellow", "white", "green", "orange", "red"]
+colors.splice(1,2,'yellow','white');
+(2) ["yellow", "white"]
+colors
+(6) ["pink", "yellow", "white", "green", "orange", "red"]
+colors.splice(1,4,'black','grey');
+(4) ["yellow", "white", "green", "orange"]0: "yellow"1: "white"2: "green"3: "orange"length: 4__proto__: Array(0)
+colors
+(4) ["pink", "black", "grey", "red"]
+colors.includes('pink')
+true
+colors.indexOf('pink')
+0
+
+-------------------------arrays are reference type----
+
+
+let colors = ["pink","green","orange","red"];
+undefined
+colors
+(4) ["pink", "green", "orange", "red"]
+let colorsCopy = colors;
+undefined
+colorsCopy
+(4) ["pink", "green", "orange", "red"]
+colorsCopy.push('RED','BLACK');
+6
+colorsCopy
+(6) ["pink", "green", "orange", "red", "RED", "BLACK"]
+colors
+(6) ["pink", "green", "orange", "red", "RED", "BLACK"]
