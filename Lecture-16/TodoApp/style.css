@@ -1,0 +1,14 @@
+section{
+    border:1px solid #ccc;
+    width: 360px;
+    margin:40px auto;
+}
+
+article div{
+    border:2px solid black;
+    width: 100px;
+    height: 100px;
+   
+    display: inline-block;
+    margin: 10px;
+}
