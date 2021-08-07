@@ -1,0 +1,12 @@
+.special{
+    border:3px solid palevioletred;
+    background-color: aqua;
+    text-transform: uppercase;
+}
+
+.one{
+    background-color: aqua;
+    border: 1px solid #ccc;
+    text-shadow: 0px 0px 2px rgb(104,104,104);
+    cursor: pointer;
+}
