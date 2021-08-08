@@ -1,0 +1,13 @@
+section{
+    width: 70vw;
+    margin:40px auto;
+    border:1px solid #ccc;
+}
+
+section h1{
+    text-align: center;
+}
+
+section input,button{
+    font-size: 1.5rem;
+}
