@@ -15,6 +15,11 @@
             <li>
                 <%=c.comment%> - <strong><%=c.username%></strong>
                 <a href="/comments/<%=c.id%>">Show</a>
+                <a href="/comments/<%=c.id%>/edit">Edit</a>
+                
+                <form method="POST" action="/comments/<%=c.id%>?_method=DELETE">
+                    <button type="submit">Delete</button>
+                </form>
             </li>
             
             <%}%>

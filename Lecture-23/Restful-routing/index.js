@@ -1,30 +1,35 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const methodOverride = require('method-override')
+const { v4: uuid } = require('uuid');
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 
+app.use(methodOverride('_method'))
 
-const comments = [
+
+let comments = [
     {
-        id:0,
+        id:uuid(),
         username: "Sabeel",
         comment: "We are learning restful routing"
     },
     {
-        id:1,
+        id:uuid(),
         username: "Cat",
         comment: "Meoww Meeooow"
     },
     {
-        id:2,
+        id:uuid(),
         username: "Dog",
         comment: "Wooof WOooof Wooof"
     },
     {
-        id:3,
+        id:uuid(),
         username: "Kartik",
         comment: "Hello from coding blocks"
     }
@@ -49,7 +54,7 @@ app.post('/comments', (req, res) => {
 
     const { username, comment } = req.body;
 
-    const id = comments.length;
+    const id = uuid();
 
     comments.push({ username, comment,id });
 
@@ -62,10 +67,49 @@ app.get('/comments/:id', (req, res) => {
     
     const { id } = req.params;
 
-    const foundComment = comments.find((c) => c.id === parseInt(id));
+    const foundComment = comments.find((c) => c.id === id);
 
     res.render('show', { c: foundComment });
 });
+
+
+// Getting the comment for editing
+
+app.get('/comments/:id/edit', (req, res) => {
+    
+    const { id } = req.params;
+
+    const foundComment = comments.find((c) => c.id === id);
+
+    res.render('edit', { c: foundComment });
+});
+
+
+// updating a comment with some id
+app.patch('/comments/:id', (req, res) => {
+    
+    const { id } = req.params;
+
+    const foundComment = comments.find((c) => c.id === id);
+
+    foundComment.comment = req.body.comment;
+
+    res.redirect(`/comments/${id}`);
+});
+
+
+// delete a particular blog
+app.delete('/comments/:id', (req, res) => {
+    
+    const { id } = req.params;
+
+    const newComments = comments.filter((c) => c.id !== id);
+
+    comments = newComments;
+
+
+    res.redirect('/comments');
+})
 
 
 
