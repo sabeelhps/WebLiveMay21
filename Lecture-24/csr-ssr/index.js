@@ -19,7 +19,6 @@ app.get('/todo', (req, res) => {
         res.status(200).json(todos);
     } else {
         console.log("SSR");
-
         res.render('index',{todos});
     }
 });
