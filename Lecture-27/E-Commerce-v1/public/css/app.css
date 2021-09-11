@@ -1,0 +1,35 @@
+:root{
+    --main-color:#0096c7;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+main{
+    margin-top: 4rem;
+}
+
+.card{
+    margin: 10px auto;
+    text-align: center;
+    box-shadow: 0px 0px 3px rgb(104,104,104);
+}
+
+.card img{
+    height: 220px;
+    padding: 8px;
+}
+
+.btn-outline-primary{
+    color:var(--main-color);
+}
+
+.btn-outline-primary:hover{
+    background-color: var(--main-color);
+}
+.fa-rupee-sign{
+    font-size: 18px;
+    margin-right: 5px;
+}
