@@ -24,8 +24,34 @@
                 </div>
               </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <h1 class="display-6">Leave a Review</h1>
+            <form action="/products/<%=product._id%>/review" method="POST">
+                <div class="mb-3">
+                    <input class="form-control" type="range" name="rating" min="0" max="5">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" name="comment" id="description" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+
+            <div class="mt-3">
+
+                <%for(let review of product.reviews){%>
+                    <div class="card text-start">
+                        <h5 class="card-header">Rating : <%=review.rating%></h5>
+                        <div class="card-body">
+                          <p class="card-text">Review : <%=review.comment%></p>
+                          <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
+                      </div>
+                <%}%>
+
+
+            </div>
+
         </div>
     </div>
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
+const Review = require('../models/review');
 
 
 // To get all the products
@@ -37,7 +38,9 @@ router.get('/products/:id', async (req, res) => {
     
     const { id } = req.params;
 
-    const product = await Product.findById(id);
+    const product = await Product.findById(id).populate('reviews');
+
+    console.log(product);
 
     res.render('products/show', { product });
 });
@@ -72,6 +75,28 @@ router.delete('/products/:id', async (req, res) => {
     await Product.findByIdAndDelete(id);
 
     res.redirect('/products');
+});
+
+
+router.post('/products/:id/review', async (req, res) => {
+    
+    // This is product on which u want to create a review
+    const { id } = req.params;
+    const { rating, comment } = req.body;
+
+    const review = new Review({ rating: rating, comment: comment });
+
+    const product = await Product.findById(id);
+
+    product.reviews.push(review);
+
+    // saving a review in a review collection
+    await review.save();
+
+    // saving a product after adding review to reviews array
+    await product.save();
+   
+    res.redirect(`/products/${id}`);
 })
 
 
