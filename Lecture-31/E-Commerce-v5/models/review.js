@@ -10,6 +10,10 @@ const reviewSchema = new mongoose.Schema({
     comment: {
         type: String,
         trim: true
+    },
+    user: {
+        type: String,
+        trim:true
     }
 });
 

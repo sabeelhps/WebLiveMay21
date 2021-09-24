@@ -17,7 +17,7 @@
                   <p class="card-text"><%=product.desc%></p>
                   <h5 class="card-title"><i class="fas fa-rupee-sign"></i><%=product.price%></h5>
                   <a href="#" class="btn btn-primary">Buy</a>
-                  <a href="#" class="btn btn-success">Add To Cart</a>
+                  <a href="/cart/<%=product._id%>/add" class="btn btn-success">Add To Cart</a>
                   <a href="/products/<%=product._id%>/edit" class="btn btn-info">Edit</a>
                   
                   <form class="mt-2" action="/products/<%=product._id%>?_method=DELETE" method="POST">
@@ -61,6 +61,7 @@
                                 <p  class="starability-result" data-rating="<%=review.rating%>">
                                     Rated: <%=review.rating%> stars
                                 </p>
+                                <p class="text-capitalize fw-light">By <%=review.user%></p>
                                 <p class="card-text">Review : <%=review.comment%></p>
                                 <form action="/products/<%=product._id%>/review/<%=review._id%>?_method=DELETE" method="POST">
                                     <button class="btn btn-danger btn-sm">Delete</button>

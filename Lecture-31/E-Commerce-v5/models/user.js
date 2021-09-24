@@ -7,7 +7,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
-    }
+    },
+    cart: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'Product'
+        }
+    ]
 });
 
 userSchema.plugin(passportLocalMongoose);

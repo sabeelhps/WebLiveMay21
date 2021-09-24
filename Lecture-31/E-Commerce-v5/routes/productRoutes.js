@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
 const Review = require('../models/review');
-
+const {isLoggedIn} = require('../middleware');
 
 // To get all the products
 router.get('/products', async (req, res) => {
@@ -15,14 +15,14 @@ router.get('/products', async (req, res) => {
 
 // Get the form for a new product
 
-router.get('/product/new', (req, res) => {
+router.get('/product/new',isLoggedIn, (req, res) => {
     
     res.render('products/new');
 });
 
 // Create a new product
 
-router.post('/products', async (req, res) => {
+router.post('/products',isLoggedIn, async (req, res) => {
     
     const newProduct = req.body;
 
@@ -47,7 +47,7 @@ router.get('/products/:id', async (req, res) => {
 
 
 // To get the edit page
-router.get('/products/:id/edit', async (req, res) => {
+router.get('/products/:id/edit',isLoggedIn, async (req, res) => {
     
     const { id } = req.params;
 
@@ -58,7 +58,7 @@ router.get('/products/:id/edit', async (req, res) => {
 
 // Updating a particular product with the given id
 
-router.patch('/products/:id', async (req, res) => {
+router.patch('/products/:id',isLoggedIn, async (req, res) => {
     
     const { id } = req.params;
 
@@ -69,7 +69,7 @@ router.patch('/products/:id', async (req, res) => {
 });
 
 
-router.delete('/products/:id', async (req, res) => {
+router.delete('/products/:id',isLoggedIn, async (req, res) => {
     
     const { id } = req.params;
 
@@ -79,13 +79,13 @@ router.delete('/products/:id', async (req, res) => {
 });
 
 
-router.post('/products/:id/review', async (req, res) => {
+router.post('/products/:id/review',isLoggedIn, async (req, res) => {
     
     // This is product on which u want to create a review
     const { id } = req.params;
     const { rating, comment } = req.body;
 
-    const review = new Review({ rating: rating, comment: comment });
+    const review = new Review({ rating: rating, comment: comment,user:req.user.username });
 
     const product = await Product.findById(id);
 
@@ -104,7 +104,7 @@ router.post('/products/:id/review', async (req, res) => {
 
 // Delete a review
 
-router.delete('/products/:productid/review/:reviewid', async(req, res) => {
+router.delete('/products/:productid/review/:reviewid',isLoggedIn, async(req, res) => {
         
     const { productid, reviewid } = req.params;
     

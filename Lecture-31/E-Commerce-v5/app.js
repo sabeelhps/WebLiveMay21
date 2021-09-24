@@ -30,6 +30,7 @@ mongoose.connect('mongodb://localhost:27017/shop-app')
 
 const productRoutes = require('./routes/productRoutes');
 const authRoutes = require('./routes/authRoutes');
+const cartRoutes = require('./routes/cartRoutes');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -77,6 +78,7 @@ app.get('/', (req, res) => {
 
 app.use(productRoutes);
 app.use(authRoutes);
+app.use(cartRoutes);
 
 
 app.listen(3000, () => {
