@@ -1,0 +1,43 @@
+<%- include('./partials/header') %> 
+<%- include('./partials/navbar') %> 
+
+<section class="p-3 mt-5"  style="background-color:#a9d6e5 ;">
+    <div class="row container">
+        <div class="col-lg-6 ms-4">
+            <h1 class="display-3">Medium is a place to write, read, and connect</h1>
+            <p>It's easy and free to post your thinking on any topic and connect with millions of readers.</p>
+            <a type="button" class="btn btn-light rounded-pill" href="/blogs/new">Start Writing</a>
+        </div>
+        <div class="col-lg-6"></div>
+    </div>
+</section>
+
+<main class="container mt-5">
+    <% for(let blog of blogs){ %>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="<%= blog.img %> " class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%=blog.title%></h5>
+                  <p class="card-text"><%= blog.desc.substring(0,50) %>.... </p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <a href="/blogs/<%= blog.id %> " class="btn btn-info btn-small">Read More</a>
+                  <a href="/blogs/<%= blog.id %>/edit " class="btn btn-secondary btn-small">Edit</a>
+                  
+                  <form class="d-inline-block" action="/blogs/<%= blog.id %>?_method=DELETE " method="POST">
+                    <button class="btn btn-small btn-danger">Delete</button>
+                  </form>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+    <% } %> 
+</ul>
+
+<%- include('./partials/footer') %> 
+
+    

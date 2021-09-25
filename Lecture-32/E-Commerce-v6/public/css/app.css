@@ -1,0 +1,100 @@
+:root {
+  --main-color: #0096c7;
+}
+
+body {
+  /* font-family: 'Roboto', sans-serif; */
+}
+
+main {
+  margin-top: 5rem;
+}
+
+.card {
+  margin: 10px auto;
+  text-align: center;
+  box-shadow: 0px 0px 3px rgb(104, 104, 104);
+  transition: 100ms;
+}
+
+.show-card {
+  text-align: left;
+}
+
+.card img {
+  height: 220px;
+  padding: 8px;
+}
+
+.btn-outline-primary {
+  color: var(--main-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--main-color);
+}
+.fa-rupee-sign {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.show-card {
+  width: 28rem;
+}
+
+.show-card img {
+  height: 20rem;
+}
+.navbar {
+  font-size: 1.1rem;
+}
+.navbar-brand {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.09em;
+  margin-top: -4px;
+  font-weight: 900;
+}
+
+.fa-shopping-basket {
+  font-size: 1.7rem;
+  margin-right: 10px;
+}
+
+.average-rating {
+  font-size: 0.9rem;
+  padding: 0;
+  margin: 0;
+  background-color: var(--main-color);
+  color: white;
+  width: 60px;
+}
+
+.star-entity {
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  /* border: 1px solid black; */
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+#heading {
+  width: 98%;
+  background-color: #e9ecef;
+  padding: 16px;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 400px) {
+  .show-card {
+    width: 20rem;
+  }
+
+  .show-card img {
+    height: 220px;
+  }
+}
