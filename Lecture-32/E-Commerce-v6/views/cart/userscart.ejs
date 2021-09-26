@@ -1,51 +1,71 @@
-<%- include("../partials/header") %>
-<%- include("../partials/navbar") %>
+<%- include("../partials/header")%>
+<%- include("../partials/navbar")%>
 
+<div class="container" style="margin-top: 5rem;">
 
+  <%- include("../partials/flash")%>
 
-<main class="container">
+ 
+  
+  <div class="row">
+  <div class="col-lg-8">
+    <h6 class="display-6">My Cart</h6>
 
-    <%- include("../partials/flash") %>
-
-
-    <div class="row">
-            <div class="col-lg-6">
-                <%for(let item of cart){%>
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="<%=item.img%>" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                            <h5 class="card-title"><%=item.price%></h5>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                  <%}%>
+  <%for(let item of cart){%>
+        <div class="card mb-3" style="width: 60%;">
+          <div class="row g-0">
+            <div class="col-md-2">
+              <img style="width: 100px;height: 100px;" src="<%=item.img%>" alt="...">
             </div>
-            <div class="col-lg-4">
-                <ul class="list-group">
-                    <%let totalAmount=0%>
-                    <%for(let item of cart){%>
-                        <li class="list-group-item"> <strong><%=item.name%></strong> : <%=item.price%> </li>
-                        <% totalAmount+=item.price %>    
-                    <% } %> 
-                    <li class="list-group-item"> <strong>Total Amount</strong> : <%=totalAmount%> </li>
-                </ul>
-                <div class="mt-3">
-                    <a href="" class="btn btn-success btn-small">Pay Now</a>
-                </div>
-               
+            <div class="col-md-6">
+              <div class="card-body">
+                <h5 class="card-title"><%=item.name%></h5> 
+                <form action="/user/<%=currentUser._id%>/cart/<%=item._id%>?_method=DELETE" method="post">
+                  <button class="btn btn-sm btn-danger">remove</button>
+                </form>
+              </div>
             </div>
+          </div>
+        </div>
+      <%}%>
+
+      
+      </div>
+
+      <div class="col-lg-4 mb-3">
+        <%totalAmount=0%>
+        <h6 class="display-6">Products</h6>
+        <ul class="list-group">
+         
+          <%for(let item of cart){%>
+            <li class="list-group-item"><%=item.name%> - <strong>&#8377; <%=item.price%></strong></li>
+            <%totalAmount+=item.price%>
+          <%}%>
+          
+        </ul>
+
+        <div class="mt-2">
+          <p class="fw-bold">Total Amount :  &#8377; <%=totalAmount%></p>
+          
+          <form action="/payment_gateway/payumoney" method="POST">
+            <input class="amount" type="hidden" name="amount" value="<%=totalAmount%>"/>
+            <input class="con" type="hidden" name="phone" value="9999999999" />
+            <input type="hidden" name="service_provider" 
+             value="payu_paisa"/>
+            <input type="hidden" class="product" name="productinfo" 
+             value="educational purpose"/>
+             
+             <button class="btn btn-success">Proceed To Pay</button>
+          </form>
+        
+        
+        </div>
        
-
+      </div>
+     
     </div>
 
-</main>
+</div>
 
 
-
-<%- include("../partials/footer") %>
+<%- include("../partials/footer")%>

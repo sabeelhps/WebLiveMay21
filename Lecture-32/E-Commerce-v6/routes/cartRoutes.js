@@ -11,26 +11,54 @@ const {isLoggedIn } = require('../middleware');
 
 router.get('/cart/:productid/add', isLoggedIn, async (req, res) => {
     
-    const { productid } = req.params;
-    const product = await Product.findById(productid);
-    const user = req.user;
+    try {
+        const { productid } = req.params;
+        const product = await Product.findById(productid);
+        const user = req.user;
 
-    user.cart.push(product);
+        user.cart.push(product);
 
-    await user.save();
+        await user.save();
 
-    res.redirect('/cart/user')
+        res.redirect('/cart/user')
+    }
+    catch (e) {
+        req.flash('error', "Cannot add the product at the moment.Try Again ");
+        res.redirect('/error');
+    }
+    
 });
 
-router.get('/cart/user',isLoggedIn,async(req, res) => {
+router.get('/cart/user', isLoggedIn, async (req, res) => {
     
+    try {
+        const userid = req.user._id;
 
-    const userid = req.user._id;
+        const user = await User.findById(userid).populate('cart');
+    
+        res.render('cart/userscart', { cart: user.cart });
+    }
+    catch (e) {
+        req.flash('error', "Try Again ");
+        res.redirect('/error');
+    }
+   
+});
 
-    const user = await User.findById(userid).populate('cart');
+router.delete('/user/:userid/cart/:id', async (req, res) => {
 
-    res.render('cart/userscart',{cart:user.cart});
-})
+    try {
+        const { userid, id } = req.params;
+        await User.findByIdAndUpdate(userid, { $pull: { cart: id } })
+        res.redirect('/cart/user');
+    }
+    catch (e) {
+        req.flash('error', "Oops, Something Went Wrong .Try Again ");
+        res.redirect('/error');
+    }
+
+});
+
 
 
 

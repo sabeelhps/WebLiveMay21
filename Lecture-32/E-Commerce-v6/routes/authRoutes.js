@@ -68,10 +68,19 @@ router.post('/login', passport.authenticate('local',
 // Logout the user from the session
 
 router.get('/logout', (req, res) => {
-    req.logout();
 
-    req.flash('success', 'Logged Out Successfully!!');
-    res.redirect('/login');
+    try {
+        req.logout();
+
+        req.flash('success', 'Logged Out Successfully!!');
+        res.redirect('/login');
+    }
+    catch (e) {
+        req.flash('error', "Can't Logged you out at the moment ");
+        res.redirect('/error');
+    }
+
+   
 })
 
 

@@ -17,11 +17,7 @@ const seedDB = require('./seed');
 
 
 
-mongoose.connect(process.env.MONGODB_URL,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
+mongoose.connect(process.env.MONGODB_URL)
     .then(() => {
         console.log("DB Connected");
     })
@@ -40,6 +36,8 @@ mongoose.connect(process.env.MONGODB_URL,
 const productRoutes = require('./routes/productRoutes');
 const authRoutes = require('./routes/authRoutes');
 const cartRoutes = require('./routes/cartRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
+const orderRoutes = require('./routes/myorder');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -83,13 +81,19 @@ app.get('/', (req, res) => {
     res.render("home");
 });
 
+app.get('/error', (req, res) => {
+    res.render('error');
+})
+
 
 
 app.use(productRoutes);
 app.use(authRoutes);
 app.use(cartRoutes);
+app.use(paymentRoutes);
+app.use(orderRoutes);
 
 
 app.listen(3000, () => {
     console.log('server started at port 3000');
-})
+});

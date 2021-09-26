@@ -2,13 +2,14 @@
 <%- include("./partials/navbar") %>
 
 <main class="container">
+    <%- include("./partials/flash") %>
     <section id="heading"> 
 
         <h4 class="display-4"><i class="fab fa-shopify" style="margin-right: 20px;"></i>Shopping-Cart</h4>
   
     </section>
 
-    <%- include("./partials/flash") %>
+    
 
         <div class="row">
             <%for(let product of products){%>
