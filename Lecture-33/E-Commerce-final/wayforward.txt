@@ -1,0 +1,6 @@
+1.Create the authorisation for Seller and Consumer
+2.Implement Average star rating
+3.Create and Add a nice footer
+4.Add Filter functionality for products
+5.Upload Images using multer and cloudinary
+6.learn how to add your own custom domain

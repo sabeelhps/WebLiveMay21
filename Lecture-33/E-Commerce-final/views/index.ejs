@@ -1,0 +1,35 @@
+<%- include("./partials/header") %>
+<%- include("./partials/navbar") %>
+
+<main class="container">
+    <%- include("./partials/flash") %>
+    <section id="heading"> 
+
+        <h4 class="display-4"><i class="fab fa-shopify" style="margin-right: 20px;"></i>Shopping-Cart</h4>
+  
+    </section>
+
+    
+
+        <div class="row">
+            <%for(let product of products){%>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card" style="width: 20rem;">
+                        <img src="<%=product.img%>" class="card-img-top" alt="Product">
+                        <div class="card-body">
+                          <h5 class="card-title"><%=product.name%></h5>
+                          <p class="card-text"><%=product.desc.substring(0,100)%></p>
+                          <p class="average-rating mx-auto mb-1 rounded-pill"> 4.3 <span class="star-entity"> &#11089;</span></p>
+                          <h5 class="card-title"><i class="fas fa-rupee-sign"></i><%=product.price%></h5>
+                          <a type="button" class="btn btn-outline-primary" href="/products/<%=product._id%>">Buy Now</a>
+                        </div>
+                      </div>
+                </div>
+            <%}%>
+        </div>
+</main>
+
+
+
+<%- include("./partials/footer") %>
+    
